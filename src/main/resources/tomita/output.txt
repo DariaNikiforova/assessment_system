@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?><fdo_objects><document url="" di="0" bi="-1" date="2015-05-09"><facts><AdjTag FactID="0" LeadID="0" FieldsInfo="n0;" pos="9" len="8" sn="0" fw="1" lw="1"><CanonicWord val="НЕВЕРНЫЙ"/></AdjTag></facts><Leads><Lead text="&lt;l&gt;&lt;h t=&quot;ya&quot; di=&quot;0&quot; u=&quot;&quot;&gt;&lt;d&gt;2015-05-09 01:15&lt;/d&gt;&lt;s&gt;file&lt;/s&gt;&lt;/h&gt;&lt;b&gt;&lt;s&gt;тестовый &lt;C n0=&quot;&quot; lemma=&quot;неверный&quot;&gt;неверный&lt;/C&gt; ответ&lt;/s&gt;&lt;/b&gt;&lt;/l&gt;" id="0"/></Leads></document>
+</fdo_objects>

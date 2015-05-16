@@ -1,0 +1,31 @@
+import "base.proto";           // описание protobuf-типов
+import "facttypes_base.proto"; // описание protobuf-типа NFactType.TFact
+message NounTag: NFactType.TFact 
+{
+    optional string CanonicWord = 1;
+}
+
+message AdjTag: NFactType.TFact 
+{
+    optional string CanonicWord = 1;
+}
+
+message OtherTag: NFactType.TFact 
+{
+    optional string CanonicWord = 1;
+}
+
+message VerbTag: NFactType.TFact 
+{
+    optional string CanonicWord = 1;
+}
+
+message SubjectTag: NFactType.TFact 
+{
+    optional string Subject = 1;
+}
+
+message ObjectTag: NFactType.TFact 
+{
+    optional string Object = 1;
+}
