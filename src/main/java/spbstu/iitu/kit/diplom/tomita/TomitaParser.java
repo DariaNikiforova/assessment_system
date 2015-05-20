@@ -39,6 +39,10 @@ public final class TomitaParser {
         return OUTPUT_XML;
     }
 
+    public static String getOutputXml() {
+        return OUTPUT_XML;
+    }
+
     public static boolean writeToFile(String text) {
         try {
             Writer writer = new BufferedWriter(new OutputStreamWriter(

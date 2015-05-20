@@ -22,9 +22,14 @@ TTextMinerConfig {
   Facts = [
 		{ Name = "NounTag" },
 		{ Name = "AdjTag" },
+    { Name = "ParticipleTag" },
+    { Name = "RelationTag" }
 		{ Name = "OtherTag"},
 		{ Name = "VerbTag"},
-    { Name = "SubjectTag"}
-    { Name = "ObjectTag" }
+    { Name = "SubjectTag"},
+    { Name = "ObjectTag" },
+    { Name = "NameTag"},
+    { Name = "PrivilegeTag"},
+    { Name = "PartTag" }
 	]	
 }

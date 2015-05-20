@@ -10,14 +10,23 @@ message AdjTag: NFactType.TFact
     optional string CanonicWord = 1;
 }
 
-message OtherTag: NFactType.TFact 
-{
-    optional string CanonicWord = 1;
+message ParticipleTag: NFactType.TFact {
+	optional string CanonicWord = 1;	
 }
 
 message VerbTag: NFactType.TFact 
 {
     optional string CanonicWord = 1;
+} 
+
+message OtherTag: NFactType.TFact 
+{
+    optional string CanonicWord = 1;
+}
+
+message RelationTag: NFactType.TFact 
+{
+    optional string Relation = 1;
 }
 
 message SubjectTag: NFactType.TFact 
@@ -28,4 +37,19 @@ message SubjectTag: NFactType.TFact
 message ObjectTag: NFactType.TFact 
 {
     optional string Object = 1;
+}
+
+message NameTag: NFactType.TFact 
+{
+    optional string Name = 1;
+}
+
+message PrivilegeTag: NFactType.TFact 
+{
+    optional string Privilege = 1;
+}
+
+message PartTag: NFactType.TFact 
+{
+    optional string Part = 1;
 }

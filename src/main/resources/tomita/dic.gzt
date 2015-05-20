@@ -13,3 +13,8 @@ TAuxDicArticle "вторая_грамматика"
 {
     key = { "tomita:second.cxx" type=CUSTOM }
 }
+
+TAuxDicArticle "администрирование_названия"
+{
+    key = { "Oracle" | "TEMP"}
+}

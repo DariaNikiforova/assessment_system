@@ -1,20 +1,12 @@
 #encoding "utf-8"    // сообщаем парсеру о том, в какой кодировке написана грамматика
 #GRAMMAR_ROOT S
 
-
-NounWords -> Noun+ interp (NounTag.CanonicWord);
-//AdjWords -> Adj interp (AdjTag.CanonicWord);
-VerbWords -> Verb;
-VP -> VerbWords Word<gram="inf">+;
-
-SubjectGram -> NounWords interp (SubjectTag.Subject) VP interp (VerbTag.CanonicWord); 
-S -> SubjectGram;
-//Other -> Word interp (OtherTag.CanonicWord);
- 
-/**Bla -> NounWords Verb;
-Bla1 -> NounWords<gnc-agr[1]> (",") Adj<gnc-agr[1]>;
-Bla2 -> Bla1<gnc-agr[1]> Word<gnc-agr[1]>+;
-Bla3 -> NounWords Other;
-Bla4 -> Adj Word;
-
-S ->  Bla | Bla1 | Bla2 | Bla3 | Bla4 | NounWords | AdjWords | Verbs | Other;**/
+S -> Participle interp (ParticipleTag.CanonicWord);
+S -> AnyWord<gram="S",wff="[а-яА-я]+"> interp (NounTag.CanonicWord);
+S -> Verb interp (VerbTag.CanonicWord);
+S -> Adj interp (AdjTag.CanonicWord);
+S -> Word<gram="A,brev"> interp (AdjTag.CanonicWord);
+S -> Prep interp (OtherTag.CanonicWord);
+S -> AnyWord<wff="[a-zA-z]+">+ interp (NameTag.Name);
+S -> AnyWord<wff="[a-zA-z]+_[a-zA-z]+"> interp (PrivilegeTag.Privilege);
+S -> Word<gram="PART"> interp (PartTag.Part);
