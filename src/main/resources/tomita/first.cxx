@@ -3,6 +3,8 @@
 
 S -> Participle interp (ParticipleTag.CanonicWord);
 S -> AnyWord<gram="S",wff="[а-яА-я]+"> interp (NounTag.CanonicWord);
+S -> Word<kwtype="разделяемый_пул"> interp (NameTag.Name);
+S -> Word<kwtype="sga"> interp (NameTag.Name);
 S -> Verb interp (VerbTag.CanonicWord);
 S -> Adj interp (AdjTag.CanonicWord);
 S -> Word<gram="A,brev"> interp (AdjTag.CanonicWord);

@@ -18,3 +18,17 @@ TAuxDicArticle "администрирование_названия"
 {
     key = { "Oracle" | "TEMP"}
 }
+
+TAuxDicArticle "разделяемый_пул"
+{
+ key = "разделяемый пул"
+ lemma = "shared pool"
+ mainword = 2
+}
+
+TAuxDicArticle "sga"
+{
+ key = "системный глобальный область"
+ lemma = "sga"
+ mainword = 3
+}

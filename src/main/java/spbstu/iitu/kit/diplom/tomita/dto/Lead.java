@@ -1,11 +1,25 @@
 package spbstu.iitu.kit.diplom.tomita.dto;
 
+import spbstu.iitu.kit.diplom.tomita.Stemmer;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Daria Nikiforova
  */
 public class Lead {
+
+    public static final String NOUN = "noun";
+    public static final String VERB = "verb";
+    public static final String ADJECTIVE = "adjective";
+    public static final String PARTCIPLE = "participle";
+    public static final String PART = "part";
+    public static final String NAME = "name";
+    public static final String PRIVILEGE = "privilege";
+    public static final String OTHER = "other";
+
     ArrayList<Fact> adjectives;
     ArrayList<Fact> nouns;
     ArrayList<Fact> verbs;
@@ -124,5 +138,196 @@ public class Lead {
         return adjectives.size() + nouns.size() + verbs.size() + others.size()
                 + parts.size() + participles.size() + relations.size() + subjects.size() + objects.size()
                 + names.size() + privileges.size();
+    }
+
+    public int getObjectSize() {
+        return getObjectMap().size();
+    }
+
+    public int getSubjectSize() {
+        return getSubjectsMap().size();
+    }
+
+    public int getSubjectIndex(String word) {
+        Stemmer stemmer = new Stemmer();
+        String normWord =  stemmer.stem(word);
+        int i = 0;
+        for (Fact subject : subjects) {
+            if (subject.getValue().toLowerCase().contains(normWord)) {
+                return i;
+            }
+            i++;
+        }
+        return -1;
+    }
+
+    public int getRelationIndex(String word) {
+        Stemmer stemmer = new Stemmer();
+        String normWord =  stemmer.stem(word);
+        int i = 0;
+        for (Fact relation : relations) {
+            if (relation.getValue().toLowerCase().contains(normWord)) {
+                return i;
+            }
+            i++;
+        }
+        return -1;
+    }
+
+    public int getObjectIndex(String word) {
+        Stemmer stemmer = new Stemmer();
+        String normWord =  stemmer.stem(word);
+        int i = 0;
+        for (Fact object : objects) {
+            if (object.getValue().toLowerCase().contains(normWord)) {
+                return i;
+            }
+            i++;
+        }
+        return -1;
+    }
+
+    public Map<String, String> getSubjectsMap() {
+        Map<String, String> facts = new HashMap<>();
+        String word;
+        for (Fact noun : nouns) {
+            word = noun.getValue();
+            if (getSubjectIndex(word) >= 0) {
+                facts.put(noun.getValue(), NOUN);
+            }
+        }
+        for (Fact verb : verbs) {
+            word = verb.getValue();
+            if (getSubjectIndex(word) >= 0) {
+                facts.put(verb.getValue(), VERB);
+            }
+        }
+        for (Fact participle : participles) {
+            word = participle.getValue();
+            if (getSubjectIndex(word) >= 0) {
+                facts.put(participle.getValue(), PARTCIPLE);
+            }
+        }
+        for (Fact adjective : adjectives) {
+            word = adjective.getValue();
+            if (getSubjectIndex(word) >= 0) {
+                facts.put(adjective.getValue(), ADJECTIVE);
+            }
+        }
+        for (Fact name : names) {
+            word = name.getValue();
+            if (getSubjectIndex(word) >= 0) {
+                facts.put(name.getValue(), NAME);
+            }
+        }
+        for (Fact privilege : privileges) {
+            word = privilege.getValue();
+            if (getSubjectIndex(word) >= 0) {
+                facts.put(privilege.getValue(), PRIVILEGE);
+            }
+        }
+        for (Fact part : parts) {
+            word = part.getValue();
+            if (getSubjectIndex(word) >= 0) {
+                facts.put(part.getValue(), PART);
+            }
+        }
+        return facts;
+    }
+
+    public Map<String, String> getRelationsMap() {
+        Map<String, String> facts = new HashMap<>();
+        String word;
+        for (Fact noun : nouns) {
+            word = noun.getValue();
+            if (getRelationIndex(word) >= 0) {
+                facts.put(noun.getValue(), NOUN);
+            }
+        }
+        for (Fact verb : verbs) {
+            word = verb.getValue();
+            if (getRelationIndex(word) >= 0) {
+                facts.put(verb.getValue(), VERB);
+            }
+        }
+        for (Fact participle : participles) {
+            word = participle.getValue();
+            if (getRelationIndex(word) >= 0) {
+                facts.put(participle.getValue(), PARTCIPLE);
+            }
+        }
+        for (Fact adjective : adjectives) {
+            word = adjective.getValue();
+            if (getRelationIndex(word) >= 0) {
+                facts.put(adjective.getValue(), ADJECTIVE);
+            }
+        }
+        for (Fact name : names) {
+            word = name.getValue();
+            if (getRelationIndex(word) >= 0) {
+                facts.put(name.getValue(), NAME);
+            }
+        }
+        for (Fact privilege : privileges) {
+            word = privilege.getValue();
+            if (getRelationIndex(word) >= 0) {
+                facts.put(privilege.getValue(), PRIVILEGE);
+            }
+        }
+        for (Fact part : parts) {
+            word = part.getValue();
+            if (getRelationIndex(word) >= 0) {
+                facts.put(part.getValue(), PART);
+            }
+        }
+        return facts;
+    }
+
+    public Map<String, String> getObjectMap() {
+        Map<String, String> facts = new HashMap<>();
+        String word;
+        for (Fact noun : nouns) {
+            word = noun.getValue();
+            if (getObjectIndex(word) >= 0) {
+                facts.put(noun.getValue(), NOUN);
+            }
+        }
+        for (Fact verb : verbs) {
+            word = verb.getValue();
+            if (getObjectIndex(word) >= 0) {
+                facts.put(verb.getValue(), VERB);
+            }
+        }
+        for (Fact participle : participles) {
+            word = participle.getValue();
+            if (getObjectIndex(word) >= 0) {
+                facts.put(participle.getValue(), PARTCIPLE);
+            }
+        }
+        for (Fact adjective : adjectives) {
+            word = adjective.getValue();
+            if (getObjectIndex(word) >= 0) {
+                facts.put(adjective.getValue(), ADJECTIVE);
+            }
+        }
+        for (Fact name : names) {
+            word = name.getValue();
+            if (getObjectIndex(word) >= 0) {
+                facts.put(name.getValue(), NAME);
+            }
+        }
+        for (Fact privilege : privileges) {
+            word = privilege.getValue();
+            if (getObjectIndex(word) >= 0) {
+                facts.put(privilege.getValue(), PRIVILEGE);
+            }
+        }
+        for (Fact part : parts) {
+            word = part.getValue();
+            if (getObjectIndex(word) >= 0) {
+                facts.put(part.getValue(), PART);
+            }
+        }
+        return facts;
     }
 }
